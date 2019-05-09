@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/overdue_fines"
+                android:textColor="@color/textDark"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <ProgressBar
+                android:id="@+id/progress_bar_loading"
+                android:visibility="gone"
+                android:layout_gravity="start"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                style="?android:attr/progressBarStyleLarge"
+                android:indeterminate="true"
+                />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/layout_no_fines"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/no_fines"
+            android:textColor="@color/textGreen"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <include
+            android:id="@+id/card_info"
+            layout="@layout/informative_card" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_fines"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_marginStart="16sp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_fines"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/textDark"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/text_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="0.6"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/textDark"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/currency"
+                android:textSize="12sp"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@color/textDark"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

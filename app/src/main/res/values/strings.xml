@@ -1,0 +1,64 @@
+<resources>
+    <string name="lib_url" translatable="false">http://your-custom-url-here</string>
+    <string name="app_name">YarmoukLibrary</string>
+    <string name="language_text">العربية</string>
+    <string name="hint_id">Member ID</string>
+    <string name="login">login</string>
+    <string name="hint_password">Password</string>
+    <string name="library_name">Al-Hussein Bin Talal Library</string>
+    <string name="my_books">My books</string>
+    <string name="alerts">notifications</string>
+    <string name="fines">Fines</string>
+    <string name="refresh_data">Refresh</string>
+    <string name="logout">Logout</string>
+    <string name="member_id">ID</string>
+    <string name="reservations">Lent books</string>
+    <string name="pending_fines">Pending fines</string>
+    <string name="fines_policy">Fines Policy</string>
+    <string name="fines_policy_content">0.100 JD for each day of delay after due
+date</string>
+    <string name="overdue_fines">Overdue fines</string>
+    <string name="plus">+ </string>
+    <string name="currency">JD</string>
+    <string name="due_date">Due date:</string>
+    <string name="no_fines">You have no fines</string>
+    <string name="no_books">You have no books</string>
+    <string name="error_empty_id">Enter id</string>
+    <string name="error_empty_pass">password can\'t be empty</string>
+    <string name="total_fines">Total</string>
+    <string name="error_network">Network connection error</string>
+    <string name="tip_sync">Connect to network for up-to-date results</string>
+    <string name="late_books">Late books</string>
+    <string name="stay_in">Stay logged in</string>
+    <string name="title">Title:</string>
+    <string name="author">Author</string>
+    <string name="extend">EXTEND</string>
+    <string name="title_activity_books">BooksActivity</string>
+    <string name="tab_current">Current</string>
+    <string name="tab_history">History</string>
+    <string name="action_settings" translatable="false">Settings</string>
+    <string name="lost">Lost book</string>
+    <string name="text_barcode">Barcode:</string>
+    <string name="status">Status:</string>
+    <string name="hold">on hold</string>
+    <plurals name="days_left">
+        <item quantity="zero">No days left</item>
+        <item quantity="one">on hold, one day left</item>
+        <item quantity="other">on hold, %d days left</item>
+    </plurals>
+    <string name="title_activity_book">My books</string>
+    <string name="barcode">Barcode</string>
+    <string name="return_text">Return Date</string>
+    <string name="checkout_date">Checkout date</string>
+    <string name="type">Type:</string>
+    <string name="date">Date</string>
+    <string name="from">From</string>
+    <string name="search">Search</string>
+    <string name="to">To</string>
+    <string name="error_network_timeout">Too many results, please specify smaller range</string>
+    <string name="error_no_such_record">No results</string>
+    <string name="near_overdue">Near Overdue</string>
+    <string name="available_reservations">Available reservations</string>
+    <string name="send_me_notification_for">Send me notification for</string>
+    <string name="you_don_t_have_any_alerts">You don\'t have any notifications</string>
+</resources>

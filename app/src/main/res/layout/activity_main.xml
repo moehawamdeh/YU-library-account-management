@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="user"
+            type="jo.edu.yu.yarmouklibrary.model.User" />
+    </data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity"
+    android:theme="@style/AppThemeNoBar"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackgroundLight"
+        android:elevation="8dp"
+        >
+        <!--TODO: Override resources for older devices-->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_language_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/colorPrimary"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="4dp"
+            android:text="@string/language_text"
+            android:textColor="@color/textLight"
+            app:backgroundTint="@color/colorPrimary"
+            app:cornerRadius="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_medium"
+            android:maxLines="1"
+            android:textColor="@color/textDarkGreen"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toStartOf="@+id/button_language_switch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{user.getName()}"
+            tools:text="Mohammed Hawamdeh" />
+
+        <LinearLayout
+            android:id="@+id/button_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_name">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:srcCompat="@drawable/ic_refresh" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/refresh_data"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/button_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/button_refresh"
+            app:layout_constraintStart_toEndOf="@+id/button_refresh"
+            app:layout_constraintTop_toTopOf="@+id/button_refresh">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+
+                app:srcCompat="@drawable/ic_logout" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/logout"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_bar_loading"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:indeterminate="true"
+            android:visibility="gone"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/button_logout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/button_logout"
+            app:layout_constraintTop_toTopOf="@+id/button_logout"
+            tools:visibility="visible" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:alpha="0.12"
+            android:background="@color/textDark"
+            app:layout_constraintEnd_toEndOf="@+id/button_logout"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/button_refresh"
+            app:layout_constraintTop_toBottomOf="@+id/button_logout" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/member_id"
+            android:textColor="@color/textDark"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_refresh" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/reservations"
+            android:textColor="@color/textDark"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView3" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/late_books"
+            android:textColor="@color/textDark"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/pending_fines"
+            android:textColor="@color/textDark"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView4" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="end"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            app:fontFamily="@font/roboto"
+            app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/appCompatTextView3"
+            app:layout_constraintTop_toTopOf="@+id/appCompatTextView3"
+            tools:text="2016980044"
+            android:text="@{String.valueOf(user.getID())}"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_reservations"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="end"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            app:fontFamily="@font/roboto"
+            app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/appCompatTextView2"
+            app:layout_constraintTop_toTopOf="@+id/appCompatTextView2"
+            tools:text="5 books"
+            android:text="@{String.valueOf(user.getBooksCount())}"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_late_books"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="end"
+            android:textSize="16sp"
+            app:fontFamily="@font/roboto"
+            app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/appCompatTextView4"
+            app:layout_constraintTop_toTopOf="@+id/appCompatTextView4"
+            tools:text="none"
+            android:text="@{String.valueOf(user.getLateBooksCount())}"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_pending_fines"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="end"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:fontFamily="@font/roboto"
+            app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/appCompatTextView5"
+            app:layout_constraintTop_toTopOf="@+id/appCompatTextView5"
+            tools:text="none"
+            android:text="@{String.valueOf(user.getPendingFines())}"/>
+
+        <FrameLayout
+            android:id="@+id/bottompading"
+            android:layout_width="395dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5">
+
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+        <FrameLayout
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/textDark"
+            android:alpha="0.12" />
+        <FrameLayout
+            android:layout_gravity="center"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/textDark"
+            android:alpha="0.12" />
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:rowCount="2"
+            app:columnCount="2">
+            <RelativeLayout
+                android:id="@+id/button_books"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                >
+                <ImageView
+                    android:id="@+id/icon_book"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:tint="@color/drawableLight"
+                    app:srcCompat="@drawable/ic_book"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/icon_book"
+                    android:fontFamily="@font/roboto_medium"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/my_books"
+                    android:textColor="@color/textGreen"
+                    android:layout_marginTop="8dp"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/button_search"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                >
+                <ImageView
+                    android:id="@+id/icon_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:tint="@color/drawableLight"
+                    app:srcCompat="@drawable/ic_search"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/icon_search"
+                    android:fontFamily="@font/roboto_medium"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/search"
+                    android:textColor="@color/textGreen"
+                    android:layout_marginTop="8dp"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/button_alerts"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                >
+                <ImageView
+                    android:id="@+id/icon_alerts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:tint="@color/drawableLight"
+                    app:srcCompat="@drawable/ic_alert"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/icon_alerts"
+                    android:fontFamily="@font/roboto_medium"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/alerts"
+                    android:textColor="@color/textGreen"
+                    android:layout_marginTop="8dp"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/button_fines"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                >
+                <ImageView
+                    android:id="@+id/icon_fines"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:tint="@color/drawableLight"
+                    app:srcCompat="@drawable/ic_fines"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/icon_fines"
+                    android:fontFamily="@font/roboto_medium"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/fines"
+                    android:textColor="@color/textGreen"
+                    android:layout_marginTop="8dp"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+        </androidx.gridlayout.widget.GridLayout>
+    </FrameLayout>
+</LinearLayout>
+</layout>
